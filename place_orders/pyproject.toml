@@ -1,0 +1,13 @@
+[project]
+name = "place-orders"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.116.1",
+    "icecream>=2.1.5",
+    "rich>=14.0.0",
+    "sqlalchemy>=2.0.41",
+    "uvicorn>=0.35.0",
+]
