@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+</head>
+<body>
+    <h2>Place an Order</h2>
+    <form action="/sell_product" method="post">
+        <label for="product_id">Product:</label>
+        <select name="product_id" id="product_id">
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select><br/>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" min="1" required><br/>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <h3>All Orders</h3>
+    <ul>
+        {% for order in orders %}
+        <li>{{ order.product.name }} x {{ order.quantity }} = ${{ order.total_price }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/dashboard"><button>Back to Dashboard</button></a>
+</body>
+</html>
